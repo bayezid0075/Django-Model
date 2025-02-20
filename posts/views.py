@@ -11,10 +11,12 @@ def home (request):
     # ).save()
 
     # second method to create a new post
-    Post.objects.create(
-        title="My fifth Post",
-        content="This is my second post content.",
-        published=True
-    )
+    # Post.objects.create(
+    #     title="My fifth Post",
+    #     content="This is my second post content.",
+    #     published=True
+    # )
 
-    return HttpResponse("POST created !!",)
+    # Read all posts  
+    posts = Post.objects.all()    
+    return render(request,'posts.html', {'posts': posts})
