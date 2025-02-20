@@ -25,11 +25,17 @@ def home (request):
     #  posts = Post.objects.filter(id__in=[1,3])
     #  return render(request,'posts.html', {'posts': posts}) 
 
-    # # update post 
+    # # update single post 
     # post = Post.objects.get(id=2)
     # post.title = "My Updated Post"
     # post.save()
-    posts = Post.objects.filter(published=True)
-    print(posts)
-    posts.update(published=False)
-    return render(request,'posts.html', {'posts': posts})
+
+    # multiple data update 
+    # posts = Post.objects.filter(published=True)
+    # print(posts)
+    # posts.update(published=False)
+
+    # delete data 
+     post = Post.objects.get(id=5)
+     post.delete()
+     return render(request,'posts.html', {'posts': post})
